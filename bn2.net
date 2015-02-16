@@ -1,0 +1,97 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@483cca54";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@892e71d";
+	node_size = (130 55);
+}
+
+node Xa
+{
+	states = ("Fast" "Slow" "Stationary" );
+	position = (470 -89);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Ambulation";
+	excludepolicy = "include whole CPT";
+}
+node Xh
+{
+	states = ("H" "M" "L" );
+	position = (360 -272);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "Heart rate";
+	excludepolicy = "include whole CPT";
+}
+node Xb
+{
+	states = ("H" "M" "L" );
+	position = (118 -272);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "Breathing rate";
+	excludepolicy = "include whole CPT";
+}
+node Xt
+{
+	states = ("H" "M" "L" );
+	position = (595 -272);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "Skin temperature";
+	excludepolicy = "include whole CPT";
+}
+node Pd
+{
+	states = ("Yes" "No" );
+	position = (232 -89);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "Drink";
+	excludepolicy = "include whole CPT";
+}
+potential ( Xa | )
+{
+	data = (	0.21	0.22	0.57	);
+}
+potential ( Xh | Pd Xa )
+{
+	data = (((	0.97	0.02	0.01	)
+		(	0.76	0.2	0.04	)
+		(	0.63	0.23	0.14	))
+		((	0.92	0.07	0.01	)
+		(	0.11	0.82	0.07	)
+		(	0.07	0.08	0.85	)));
+}
+potential ( Xb | Pd Xa )
+{
+	data = (((	0.95	0.03	0.02	)
+		(	0.77	0.19	0.04	)
+		(	0.71	0.2	0.09	))
+		((	0.87	0.11	0.02	)
+		(	0.14	0.74	0.12	)
+		(	0.03	0.16	0.81	)));
+}
+potential ( Xt | Pd Xa )
+{
+	data = (((	0.91	0.06	0.03	)
+		(	0.54	0.36	0.1	)
+		(	0.49	0.38	0.13	))
+		((	0.74	0.18	0.08	)
+		(	0.21	0.47	0.32	)
+		(	0.11	0.62	0.27	)));
+}
+potential ( Pd | )
+{
+	data = (	0.13	0.87	);
+}
